@@ -1,0 +1,22 @@
+body{
+  font-family: 'Saira Semi Condensed', sans-serif;
+}
+
+.nav-title{
+  height: 140px;
+  background-color: #43cd80;
+}
+
+.title{
+  font-family: 'Fugaz One', cursive;
+  font-size: 3rem;
+}
+
+.art{
+  list-style-type : none;
+  color: black;  
+}
+
+.art:hover {
+  color:#183b57
+}

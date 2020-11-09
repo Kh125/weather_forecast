@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <!-- font -->
+     <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Saira+Semi+Condensed:wght@100;200;300;400;500&display=swap" rel="stylesheet">  
+    
+    <!-- font -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='main.css') }}">
+    <title>Weather Forecast</title>
+  </head>
+  <body>
+    <div class="whl container-fluid"">
+      <nav class="nav-title">
+        <p class="title p-4">Weather</p>
+      </nav>
+
+      <div class="content mt-5">
+        <div class="row p-4">
+          <div class="col-12 col-md-8 mb-5">
+            <form action="" method="POST">
+              <div class="input-group mb-3 mx-auto" style="width:350px">
+                <input type="text" class="form-control" placeholder="City Name" name='city'>
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" type="submit" >Search</button>
+                </div>
+              </div>     
+            </form>
+            <div class="show-result mb-5 mx-auto">
+              <div class="media mx-auto border p-3" style="width:350px">
+                <div class="img-box my-auto text-center" style="width:80px">
+                  <img src="https://openweathermap.org/img/w/{{ weather.img }}.png" alt="..." style="width:80px;height:80px">
+                </div>
+                
+                <div class="media-body" style="width:270px">
+                  <h5 class="mt-0 pl-2">{{ weather.city}}</h5>
+                  <small class="pl-2 text-muted border-bottom">{{ weather.temperature }}°F</small>
+                  <p class="mt-2 pl-2">{{ weather.desc}}</p>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-4 border-left">
+            <div class="card mx-auto" style="width:350px">
+              <ul class="list-group">
+                <li class="list-group-item"><a href="#" class="art p-3">FirstTag</a></li>
+                <li class="list-group-item"><a href="#" class="art p-3">Second Tag</a></li>
+                <li class="list-group-item"><a href="#" class="art p-3">Third Tag</a></li>
+                <li class="list-group-item"><a href="#" class="art p-3">Fourth Tag</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://use.fontawesome.com/2092b8842d.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+  </body>
+</html>
