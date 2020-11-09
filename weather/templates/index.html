@@ -7,7 +7,7 @@
     <!-- font -->
      <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Saira+Semi+Condensed:wght@100;200;300;400;500&display=swap" rel="stylesheet">  
-    
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"> 
     <!-- font -->
     <link rel="stylesheet" href="{{ url_for('static',filename='main.css') }}">
     <title>Weather Forecast</title>
@@ -20,7 +20,7 @@
 
       <div class="content mt-5">
         <div class="row p-4">
-          <div class="col-12 col-md-8 mb-5">
+          <div class="col-12 col-md-8 mb-5 data-font">
             <form action="" method="POST">
               <div class="input-group mb-3 mx-auto" style="width:350px">
                 <input type="text" class="form-control" placeholder="City Name" name='city'>
@@ -35,13 +35,16 @@
                   <img src="https://openweathermap.org/img/w/{{ weather.img }}.png" alt="..." style="width:80px;height:80px">
                 </div>
                 
-                <div class="media-body" style="width:270px">
-                  <h5 class="mt-0 pl-2">{{ weather.city}}</h5>
-                  <small class="pl-2 text-muted border-bottom">{{ weather.temperature }}°F</small>
-                  <p class="mt-2 pl-2">{{ weather.desc}}</p>
-                  
-                </div>
-              </div>
+                <div class="media-body" style="width:270px;">
+                  <h5 class="mt-0 pl-2" style="font-size:23px">{{ weather.city}}</h5>
+                  <hr>
+                  <small class="pl-2" style="color:#836fff;font-size:23px">{{ weather.temperature }}°F</small>
+                  <p class="mt-2 pl-2">{{ weather.desc}}</p>       
+                  <form action="" method="POST" class="border-top text-right">
+                    <button type="submit" class="btn btn-dark btn-small mt-3">Add</button>
+                  </form>              
+                </div>                             
+              </div>              
             </div>
           </div>
           <div class="col-12 col-md-4 border-left">

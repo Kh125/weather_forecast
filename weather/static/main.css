@@ -1,5 +1,6 @@
 body{
   font-family: 'Saira Semi Condensed', sans-serif;
+  font-size: 23px;
 }
 
 .nav-title{
@@ -19,4 +20,8 @@ body{
 
 .art:hover {
   color:#183b57
+}
+
+.data-font{
+  font-family: 'Libre Baskerville', serif;
 }
