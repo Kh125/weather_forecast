@@ -1,0 +1,14 @@
+              <div class="media border p-3" style="width:350px">
+                <div class="img-box my-auto text-center" style="width:80px">
+                  <img src="https://openweathermap.org/img/w/{{ weather.img }}.png" alt="..." style="width:80px;height:80px">
+                </div>                                
+                <div class="media-body" style="width:270px;">
+                  <h5 class="mt-0 pl-2" style="font-size:23px">{{ weather.city.upper()}}</h5>
+                  <hr>
+                  <small class="pl-2" style="color:#836fff;font-size:23px">{{ weather.temperature }}°F</small>
+                  <p class="mt-2 pl-2">{{ weather.desc.capitalize()}}</p>       
+                  <form action="{{ url_for('add',name=weather.city) }}" method="POST" class="border-top text-right">
+                    <button type="submit" class="btn btn-dark btn-small mt-3">Add</button>
+                  </form>              
+                </div>                             
+              </div>    

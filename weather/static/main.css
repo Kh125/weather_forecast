@@ -25,3 +25,43 @@ body{
 .data-font{
   font-family: 'Libre Baskerville', serif;
 }
+
+.card-box{
+  width:380px !important;
+}
+
+@media (min-width: 576px) { 
+.card-box{
+  width:380px !important;
+}
+}
+
+@media (min-width: 768px) { 
+.card-box{
+  width:450px !important;
+}
+}
+
+@media (min-width: 992px) { 
+.card-box{
+  width:450px !important;
+}
+}
+
+@media (min-width: 1200px) { 
+.card-box{
+  width:450px !important;
+}
+}
+
+.border-bottom-custom{
+  border-bottom: 1px solid #43cd80;
+}
+
+.btn-outline-green{
+  border: 1px solid black
+}
+
+.btn-outline-green:hover{
+  background-color:#43cd80;
+}
