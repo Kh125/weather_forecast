@@ -43,7 +43,6 @@ def home():
       count = 0
     count += 1
     session['county'] = count
-    print(session['count'])
     return render_template("index.html", weather=weather_data)
 
 @app.route("/list",methods=['POST','GET'])
