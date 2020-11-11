@@ -14,11 +14,8 @@ def home():
     if request.method == 'POST':
      city = request.form.get('city')
      session['city'] = city
-     print(session['city'])
     url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=imperial&appid=06bb9073587b0c1190b6b110119e6d93'
     req = requests.get(url.format(city)).json()
-    print('output')
-    print(req)
     if req['cod'] != 200:
       weather_data = {
         'city': city,

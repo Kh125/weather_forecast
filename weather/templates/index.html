@@ -56,8 +56,10 @@
   </div>
 </div>
 {% else %}
-  
-  <p style="font-size:35px;margin-bottom:-7px">{{ weather.cod }} | Not Found</p> 
+<div class="p-3" style="width:270px;border:1px solid #43cd80">
+  <p style="font-size:35px;margin-bottom:-7px;">{{ weather.cod }} | Not Found</p> 
+  <p style="border-bottom:1px solid black;width:230px;padding-bottom:10px;margin-bottom:-1px"></p>
   <small class="text-muted">No City with this name - {{ weather.city }}</small>
+</div>
 {% endif %}
 {% endblock result%}
