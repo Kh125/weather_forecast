@@ -1,4 +1,4 @@
-from flask import render_template, request, flash, redirect, url_for
+from flask import render_template, request, flash, redirect, url_for,session
 from weather import app, db
 from weather.models import City
 import requests
@@ -7,10 +7,14 @@ import requests
 @app.route("/", methods=['GET', 'POST'])
 @app.route("/home", methods=['GET', 'POST'])
 def home():
-    city = 'Yangon'
+    if 'city' in session:
+      city = session['city']
+    else:
+      city = 'Yangon'
     if request.method == 'POST':
      city = request.form.get('city')
-     
+     session['city'] = city
+     print(session['city'])
     url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=imperial&appid=06bb9073587b0c1190b6b110119e6d93'
     req = requests.get(url.format(city)).json()
     print('output')
@@ -34,7 +38,12 @@ def home():
         'speed':req['wind']['speed'],
         'deg':req['wind']['deg']
       }
-
+    count = 1
+    if 'county' not in session:
+      count = 0
+    count += 1
+    session['county'] = count
+    print(session['count'])
     return render_template("index.html", weather=weather_data)
 
 @app.route("/list",methods=['POST','GET'])
@@ -65,6 +74,7 @@ def show_all():
       }
 
       city_data.append(weather_data)
+  
   return render_template('custom.html',city = city_data)
 
 @app.route("/add/<string:name>", methods=['POST'])
