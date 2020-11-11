@@ -1,24 +1,68 @@
 {% extends "layout.html" %}
 {% block result %}
-              <div class="card text-center card-box">
-                <div class="card-something border-bottom-custom p-3">
-                  <h5 class="text-left mt-0 pl-2" style="font-size:23px">{{ weather.city.upper()}}</h5>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{{ url_for('home') }}">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">User Favourite</li>
+    </ol>
+  </nav>
+  {% for weather in city %}
+    {% if weather.cod == 200 %}
+    <div class="row">  
+      <div class="col-12 col-md-6 col-lg-6 col-xl-6 mb-5">
+        <div class="card text-center card-box">
+          <div class="card-something border-bottom-custom p-3">
+            <h5 class="text-left mt-0 pl-2" style="font-size:23px">
+              {{ weather.city.upper()}}
+              {% if weather.city.lower() != weather.std_city.lower() %}
+              ({{weather.std_city.upper()}})
+              {% endif %}              
+            </h5>
+          </div>
+          <div class="card-body">
+            <div class="row border-bottom">
+              <div class="col-4 col-md-4 mx-auto my-auto border-right">
+                <div class="img-box mx-auto my-auto" style="width:80px">
+                  <img src="https://openweathermap.org/img/w/{{ weather.img }}.png" alt="..." style="width:80px;height:80px">
                 </div>
-                <div class="card-body">
-                  <div class="row border-bottom">
-                    <div class="col-4 col-md-4 mx-auto my-auto border-right">
-                      <div class="img-box mx-auto my-auto" style="width:80px">
-                        <img src="https://openweathermap.org/img/w/{{ weather.img }}.png" alt="..." style="width:80px;height:80px">
-                      </div>
-                    </div>
-                    <div class="col-8 col-lg-8">
-                      <p class="text-left pl-2" style="color:#836fff;font-size:23px">{{ weather.temperature }}°F</p>
-                      <p class="text-left mt-2 pl-2">{{ weather.desc.capitalize()}}</p>       
-                    </div>
-                  </div>
-                  <form action="{{ url_for('add',name=weather.city) }}" method="POST" class="text-right">
-                    <button type="submit" class="btn btn-dark btn-small mt-3">Add</button>
-                  </form>    
-                </div>                
-              </div>          
+              </div>
+              <div class="col-8 col-lg-8">
+                <p class="text-left pl-2" style="color:#836fff;font-size:23px">{{ weather.temperature }}°F</p>
+                <p class="text-left mt-2 pl-2">{{ weather.desc.capitalize()}}</p>       
+              </div>
+            </div>
+            <form action="{{ url_for('remove',name=weather.city) }}" method="POST" class="text-right">
+              <button type="submit" class="btn btn-dark btn-small mt-3">Remove</button>
+            </form>    
+          </div>                
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-6  col-xl-6 mb-5">
+        <div class="card card-box-sb">
+          <div class="card-body" style="font-size:20px;">
+            <p class="" style="width:50%;float:left">Humidity </p> 
+            <p class="border-left pl-4" style="width:50%;float:left">{{ weather.humidity }}%</p>
+          </div>
+          <div class="card-body" style="font-size:20px;">
+            <p class="" style="width:50%;float:left">Feels Like </p> 
+            <p class="border-left pl-4" style="width:50%;float:left">{{ weather.feels }}°F</p>
+          </div>
+          <div class="card-body" style="font-size:20px;">
+            <p class="" style="width:50%;float:left">Wind Speed</p> 
+            <p class="border-left pl-4" style="width:50%;float:left">{{ weather.speed }}mph </p>         
+          </div>
+          <div class="card-body" style="font-size:20px;">
+            <p class="" style="width:50%;float:left">Degree</p> 
+            <p class="border-left pl-4" style="width:50%;float:left">{{ weather.deg }}°  | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i class="fas fa-long-arrow-alt-up" style="transform: rotate(20deg)"></i></p> 
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="pb-5" style="border-color:#3c1053;width:80%">
+    {% else %}
+      
+      <p style="font-size:35px;margin-bottom:-7px">{{ weather.cod }} | Not Found</p> 
+      <small class="text-muted">No City with this name - {{ weather.city }}</small>
+    {% endif %}
+  {% endfor %}     
 {% endblock result%}

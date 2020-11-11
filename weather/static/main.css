@@ -4,13 +4,12 @@ body{
 }
 
 .nav-title{
-  height: 140px;
   background-color: #43cd80;
 }
 
 .title{
   font-family: 'Fugaz One', cursive;
-  font-size: 3rem;
+  font-size: 2.5rem;
 }
 
 .art{
@@ -30,15 +29,100 @@ body{
   width:380px !important;
 }
 
-@media (min-width: 576px) { 
-.card-box{
+.card-box-sb{
+  width:380px !important;
+  height: 267px;
+}
+
+#overlay {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgba(255,255,244,0);
+  overflow-x: hidden;
+  transition: 1s;
+  display: block;
+}
+
+.overlay-content {
+  color: white;
+  position: relative;
+  top: 200px;
+  width: 350px;
+  height: 200px;
+  text-align: center;
+  background-color: #2c2f33;
+  border-radius: 8px;
+}
+
+.pref{
+  width:100%;
+  margin: 0px auto;
+}
+
+.pref-box{
   width:380px !important;
 }
+
+@media (min-width: 576px) { 
+.card-box{
+  width:450px !important;
+}
+
+.card-box-sb{
+  width:450px !important;
+  height: 267px;
+}
+.overlay-content {
+  color: white;
+  position: relative;
+  top: 200px;
+  width: 540px;
+  height: 220px;
+  text-align: center;
+  background-color: #2c2f33;
+  border-radius: 8px;
+}
+
+.pref{
+  width:100%;
+  margin: 0px auto;
+}
+.pref-box{
+  width:450px !important;
+}
+
 }
 
 @media (min-width: 768px) { 
 .card-box{
-  width:450px !important;
+  width:350px !important;
+}
+
+.card-box-sb{
+  width:350px !important;
+  height: 267px;
+}
+
+.overlay-content {
+  color: white;
+  position: relative;
+  top: 200px;
+  width: 600px;
+  height: 220px;
+  text-align: center;
+  background-color: #2c2f33;
+  border-radius: 8px;
+}
+.pref{
+  width:200px;
+  margin: 0px auto;
+}
+.pref-box{
+  width:350px !important;
 }
 }
 
@@ -46,12 +130,34 @@ body{
 .card-box{
   width:450px !important;
 }
+
+.card-box-sb{
+  width:450px !important;
+  height: 267px;
+}
+.overlay-content {
+  color: white;
+  position: relative;
+  top: 200px;
+  width: 600px;
+  height: 220px;
+  text-align: center;
+  background-color: #2c2f33;
+  border-radius: 8px;
+}
+.pref{
+  width:200px;
+  margin: 0px auto;
 }
 
-@media (min-width: 1200px) { 
-.card-box{
+.pref-box{
   width:450px !important;
 }
+}
+
+
+.card-body{
+  border-bottom: 1px solid #836fff
 }
 
 .border-bottom-custom{
@@ -65,3 +171,6 @@ body{
 .btn-outline-green:hover{
   background-color:#43cd80;
 }
+
+
+

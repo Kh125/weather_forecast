@@ -1,0 +1,17 @@
+            <form action="" method="POST">
+              <div class="row">
+                <div class="col-12 col-md-6 col-lg-6">
+                  <div class="input-group mb-3" style="width:380px">
+                    <input type="text" class="form-control" placeholder="City Name" name='city' style="border:1px solid black;">
+                    <div class="input-group-append">
+                      <button class="btn btn-small btn-outline-green btn-outline-dark" type="submit">Search</button>
+                    </div>
+                  </div> 
+                </div>
+                <div class="col-12 col-md-6 col-lg-6">
+                  <div class="navbar-nav pref-box">
+                    <a class="btn btn-outline-dark pref" href="{{ url_for('show_all')}}"><i class="fas fa-bookmark" style="color:#43cd80;"></i> &nbsp;&nbsp;&nbsp;&nbsp; User Favourite</a> 
+                  </div>   
+                </div>
+              </div>                
+            </form>
